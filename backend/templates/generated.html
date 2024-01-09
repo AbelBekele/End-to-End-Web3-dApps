@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator</title>
+</head>
+
+<body>
+
+    <body
+        style="display: flex; justify-content: center; align-items: center; text-align: center; height: 100vh; width: 100vw;">
+        <div class="container">
+            <h1>
+                Build Your Own Certificate Generator
+            </h1>
+            <h3>
+                Thank You for attending the workshop
+            </h3>
+            <img src="{{file_name}}" alt="Certificate" style="height: 25rem;">
+            <button type="submit" id="share" onclick="share()"
+                style="padding: 0.5rem; margin-top: 1.2rem; background-color: blue; color: white; border-radius: 0.5rem;">Share</button>
+        </div>
+
+        <script type="text/javascript">
+            async function share() {
+                if (!navigator.canShare) {
+                    alert("Your browser does not support sharing");
+                    return;
+                }
+                const img = await fetch("{{file_name}}", {
+                    method: "GET"
+                });
+                const blob = await img.blob();
+                const file = new File([blob], "certificate.png", { type: 'image/png' });
+                navigator.share({
+                    title: "Build Your Own Certificate Generator",
+                    text: "I have successfully completed the workshop on Building My Own Certificate Generator",
+                    files: [file]
+                });
+            }
+        </script>
+
+        <style>
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                -webkit-flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: antiquewhite;
+                padding: 5rem;
+                border-radius: 1rem;
+            }
+        </style>
+    </body>
+</body>
+
+</html>

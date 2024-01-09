@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator</title>
+</head>
+
+<body
+    style="display: flex; justify-content: center; align-items: center; text-align: center; height: 100vh; width: 100vw;">
+    <div class="container">
+        <h1>
+            Build Your Own Certificate Generator
+        </h1>
+        <h3>
+            Thank You for attending the workshop
+        </h3>
+        <p>
+            Enter your name and click on generate to get your certificate
+        </p>
+        <form action="/generatecert" method="POST">
+            <input type="text" name="name" placeholder="Enter your name" style="padding: 0.5rem;">
+            <button type="submit"
+                style="padding: 0.5rem; margin-left: 1.2rem; background-color: blue; color: white; border-radius: 0.5rem;">Generate</button>
+        </form>
+    </div>
+
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            -webkit-flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: antiquewhite;
+            padding: 5rem;
+            border-radius: 1rem;
+        }
+    </style>
+</body>
+
+</html>
