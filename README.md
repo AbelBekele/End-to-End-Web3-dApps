@@ -47,7 +47,7 @@ git clone https://github.com/AbelBekele/End-to-End-Web3-dApps.git
 - Install Dependencies:
 
 ``` bash
-cd nft-certificate-algorand
+cd End-to-End-Web3-dApps
 npm install
 ```
 
