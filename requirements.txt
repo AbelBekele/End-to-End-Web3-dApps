@@ -1,3 +1,6 @@
 Pillow
 flask
 OpenCV-Python
+python-dotenv
+openai
+requests

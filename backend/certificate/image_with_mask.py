@@ -17,14 +17,13 @@ load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-prompt="I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS, White background Design a minimalist, futuristic certificate with a red theme. The certificate should be straight-facing, occupy the full screen, and have extremely minimal details. The design may feature subtle, elegant patterns around the edges, but the center and 95% of the certificate should be pure white. No other elements should be present. Make the most of it white. Make the center blank!"
-
-response = client.images.generate(
-  model="dall-e-3",
-  prompt=prompt,
-  size="1024x1024",
-  quality="standard",
+response = client.images.edit(
+  model="dall-e-2",
+  image=open("original.png", "rb"),
+  mask=open("mask.png", "rb"),
+  prompt="I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS, White background Design a minimalist, futuristic certificate with a red theme. Just patterns nothing else. Make it modern don't add anyother thing",
   n=1,
+  size="1024x1024"
 )
 
 image_url = response.data[0].url
