@@ -4,3 +4,4 @@ OpenCV-Python
 python-dotenv
 openai
 requests
+pytest
