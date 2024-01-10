@@ -16,7 +16,6 @@ logs/**
 # except their sub-folders
 !data/**/
 !logs/**/
-backend/certificate/responses/
 backend/generated/
 
 # also keep all .gitkeep files
