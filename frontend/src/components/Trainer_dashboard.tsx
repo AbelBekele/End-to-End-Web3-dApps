@@ -4,29 +4,31 @@ import Header from '@/components/Header'
 import SendTransaction from '@/components/SendTransaction'
 import React from "react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+import { useState } from 'react';
+import {Button} from "@nextui-org/react";
 
 const rows = [
     {
       key: "1",
-      name: "Tony Reichert",
-      role: "CEO",
+      name: "Kerod Sisay",
+      role: "Week 1 Certificate",
       status: "Active",
     },
     {
       key: "2",
-      name: "Zoey Lang",
+      name: "Mubarek Hussen",
       role: "Technical Lead",
       status: "Paused",
     },
     {
       key: "3",
-      name: "Jane Fisher",
+      name: "Birehan Anteneh",
       role: "Senior Developer",
       status: "Active",
     },
     {
       key: "4",
-      name: "William Howard",
+      name: "Mikiyas Kinfemichael",
       role: "Community Manager",
       status: "Vacation",
     },
@@ -51,6 +53,14 @@ const rows = [
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Trainer_dashboard() {
+  const [isTouched, setIsTouched] = useState({});
+  const [touchedButton, setTouchedButton] = useState({});
+
+  const handleClick = (key, buttonNumber) => {
+    setIsTouched(prevState => ({...prevState, [key]: true}));
+    setTouchedButton(prevState => ({...prevState, [key]: buttonNumber}));
+  };
+
   return (
     <main className={classNames('relative flex-1 isolate', inter.className)}>
       <Header />
@@ -70,31 +80,39 @@ export default function Trainer_dashboard() {
             <div className='container bg-black max-w-40 w-30'>
             <Table aria-label="Example static collection table">
                 <TableHeader>
-                    <TableColumn>NAME</TableColumn>
-                    <TableColumn>ROLE</TableColumn>
+                    <TableColumn>TRAINEE</TableColumn>
+                    <TableColumn>WEEK</TableColumn>
                     <TableColumn>STATUS</TableColumn>
                 </TableHeader>
                 <TableBody>
-                    <TableRow key="1">
-                    <TableCell>Tony Reichert</TableCell>
-                    <TableCell>CEO</TableCell>
-                    <TableCell>Active</TableCell>
-                    </TableRow>
-                    <TableRow key="2">
-                    <TableCell>Zoey Lang</TableCell>
-                    <TableCell>Technical Lead</TableCell>
-                    <TableCell>Paused</TableCell>
-                    </TableRow>
-                    <TableRow key="3">
-                    <TableCell>Jane Fisher</TableCell>
-                    <TableCell>Senior Developer</TableCell>
-                    <TableCell>Active</TableCell>
-                    </TableRow>
-                    <TableRow key="4">
-                    <TableCell>William Howard</TableCell>
-                    <TableCell>Community Manager</TableCell>
-                    <TableCell>Vacation</TableCell>
-                    </TableRow>
+                    {rows.map(row => (
+                      <TableRow key={row.key}>
+                        <TableCell>{row.name}</TableCell>
+                        <TableCell>Week 1 Certificate</TableCell>
+                        <TableCell className='mx-2'>
+                          {isTouched[row.key] ? (
+                            touchedButton[row.key] === 1 ? (
+                              <Button color="success">
+                                Approved
+                              </Button>
+                            ) : (
+                              <Button color="danger">
+                                Denied
+                              </Button>
+                            )
+                          ) : (
+                            <>
+                              <Button className='mx-2' color="success" onClick={() => handleClick(row.key, 1)}>
+                                Approve
+                              </Button>
+                              <Button color="danger" onClick={() => handleClick(row.key, 2)}>
+                                Deny
+                              </Button>
+                            </>
+                          )}
+                        </TableCell>
+                      </TableRow>
+                    ))}
                 </TableBody>
                 </Table>
             </div>
@@ -103,5 +121,3 @@ export default function Trainer_dashboard() {
     </main>
   )
 }
-
-
