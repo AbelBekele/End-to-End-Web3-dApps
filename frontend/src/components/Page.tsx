@@ -2,8 +2,12 @@ import { classNames } from '@/utils'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import SendTransaction from '@/components/SendTransaction'
-import React from "react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+import { useWallet } from '@txnlab/use-wallet'
+import Provider from '@/components/Provider'
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router'
+import { truncateAddress } from '@/utils'
 
 const rows = [
     {
@@ -50,7 +54,27 @@ const rows = [
 
 const inter = Inter({ subsets: ['latin'] })
 
+
+
 export default function Page() {
+    const { providers, activeAddress } = useWallet()
+    const renderProviders = () => {
+        return providers?.map((provider) => (
+          <Provider
+            activeAddress={activeAddress}
+          />
+        ))
+      }
+      const router = useRouter(); 
+
+      useEffect(() => {
+        if (activeAddress === 'ZYPLVWUNKL4MNZPJNSYFTZYUDJMMDJHGLSGZDUC6NPTBRKMZWUBAYCWXBI') {
+          router.push('/trainer');
+        } else if (activeAddress === '2S35A2USHFVTXTSXC57LLYASQB7MZSUPXFTVPP2GXUPZWBDA2UID32A54E') {
+          router.push('/trainee');
+        }
+      }, [activeAddress, router]);
+
   return (
     <main className={classNames('relative flex-1 isolate', inter.className)}>
       <Header />
@@ -151,23 +175,6 @@ export default function Page() {
                 </div>
             </div>
         </section>
-        <div className="outer-container">
-            <div className='container bg-white max-w-40'>
-                <Table aria-label="Example empty table">
-                    <TableHeader>
-                        <TableColumn>NAME</TableColumn>
-                        <TableColumn>ROLE</TableColumn>
-                        <TableColumn>STATUS</TableColumn>
-                    </TableHeader>
-                    <TableBody emptyContent={"No rows to display."}>{[]}</TableBody>
-                </Table>
-            </div>
-        </div>
-      <div className="mx-auto max-w-7xl py-16 sm:py-20 px-6 lg:px-8 xl:py-24">
-        <div className="flex items-center justify-center">
-          <SendTransaction />
-        </div>
-      </div>
     </main>
   )
 }

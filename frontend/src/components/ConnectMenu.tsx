@@ -6,6 +6,7 @@ import ConnectButton from '@/components/ConnectButton'
 import Provider from '@/components/Provider'
 import UserThumbnail from '@/components/UserThumbnail'
 
+
 export default function ConnectMenu() {
   const [open, setOpen] = useState(false)
 
