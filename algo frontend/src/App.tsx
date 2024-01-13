@@ -9,6 +9,7 @@ import ConnectWallet from './components/ConnectWallet'
 import Transact from './components/Transact'
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from './utils/network/getAlgoClientConfigs'
 
+
 let providersArray: ProvidersArray
 if (import.meta.env.VITE_ALGOD_NETWORK === '') {
   const kmdConfig = getKmdConfigFromViteEnvironment()
@@ -75,15 +76,6 @@ export default function App() {
               </p>
 
               <div className="grid">
-                <a
-                  data-test-id="getting-started"
-                  className="btn btn-primary m-2"
-                  target="_blank"
-                  href="https://github.com/algorandfoundation/algokit-cli"
-                >
-                  Getting started
-                </a>
-
                 <div className="divider" />
                 <button data-test-id="connect-wallet" className="btn m-2" onClick={toggleWalletModal}>
                   Wallet Connection
