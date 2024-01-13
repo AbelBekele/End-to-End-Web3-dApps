@@ -1,7 +1,7 @@
 # NFT Certificate Distribution with Algorand Blockchain
 
 ## Table of content
-- [Redash Chat Add-On for YouTube Data Exploration](#redash-chat-add-on-for-youtube-data-exploration)
+- [ NFT Certificate Distribution with Algorand Blockchain](#nft-certificate-distribution-with-algorand-blockchain)
   - [Overview](#overview)
   - [Business Need](#business-need)
   - [Project Scope](#project-scope)
