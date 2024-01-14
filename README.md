@@ -57,6 +57,23 @@ Set up the connection to the Algorand Blockchain by providing the necessary conf
 - Run the Dapp:
 Start the decentralized application to generate, distribute, and interact with NFT certificates.
 
+## Web portal
+
+### Landing page
+  ![App Screenshot](./screenshots/landing.png)
+
+### Wallet connection
+  ![App Screenshot](./screenshots/Connecting_wallet.png)
+
+### Trainee
+  ![App Screenshot](./screenshots/trainee.png)
+
+### Trainer
+  ![App Screenshot](./screenshots/trainer.png)
+
+## Demo
+  [![Watch the video](https://img.youtube.com/vi/CaIa0P-nMDU/hqdefault.jpg)](https://www.youtube.com/watch?v=CaIa0P-nMDU)
+  
 ## Screenshots
 
 Navigate to the `screenshots` folder to view visual representations of the project.

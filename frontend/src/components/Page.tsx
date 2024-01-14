@@ -163,24 +163,24 @@ export default function Page() {
                     <div className="divide-y divide-gray--200 -my-9">
                         <div className="py-9">
                             <p className="text-xl font-semibold text-white">How to create an account?</p>
-                            <p className="mt-3 text-base text-white">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                            <p className="mt-3 text-base text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p className="mt-3 text-base text-white">You have to submit your public key to the tenx academy platform so that we can create and transfer the certificate asset for you.</p>
+                            <p className="mt-3 text-base text-white">Submitting your public key to the TenX Academy platform is necessary to establish a secure and verifiable connection. A public key serves as a cryptographic identifier, enabling the platform to generate and transfer your certificate asset securely.</p>
                         </div>
 
                         <div className="py-9">
-                            <p className="text-xl font-semibold text-white">What payment method do you support?</p>
-                            <p className="mt-3 text-base text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam.</p>
+                            <p className="text-xl font-semibold text-white">How does it work?</p>
+                            <p className="mt-3 text-base text-white">To transfer the asset created for you, you need to actively choose to opt in on the this platform. This involves providing your consent, verifying your identity, and submitting your public key for secure communication. Once opted in, the trainer will initiate the transfer, and you'll receive confirmation upon completion.</p>
                         </div>
 
                         <div className="py-9">
-                            <p className="text-xl font-semibold text-white">What payment method do you support?</p>
-                            <p className="mt-3 text-base text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p className="text-xl font-semibold text-white">How do I connect my wallet?</p>
+                            <p className="mt-3 text-base text-white">You have a variety of wallet connection options, such as Exodus, WalletConnect, Daffi, Pera, and Defly. Please feel free to utilize any of these to establish a connection.</p>
                         </div>
 
                         <div className="py-9">
                             <p className="text-xl font-semibold text-white">How do you provide support?</p>
                             <p className="mt-3 text-base text-white">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt <a href="#" title="" className="text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">support@10acadmey.org</a>
+                                Please contact our dedicated support at <a href="#" title="" className="text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">support@10acadmey.org</a>
                             </p>
                         </div>
                     </div>
