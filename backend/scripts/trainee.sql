@@ -4,6 +4,7 @@ CREATE TABLE "trainee" (
     "email" VARCHAR(50),
     "asset" INTEGER,
     "status" VARCHAR(10),
-    "remark" VARCHAR(150),
+    "week" VARCHAR(150),
+    "date" VARCHAR(150),
     "hashed" VARCHAR(350) DEFAULT NULL
 )

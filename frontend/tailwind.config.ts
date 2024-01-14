@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#3266a8',
+      },
       fontFamily: {
         beni: ['Beni', ...defaultTheme.fontFamily.sans],
         algo: ['Algo', ...defaultTheme.fontFamily.sans]

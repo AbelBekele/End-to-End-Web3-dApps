@@ -6,6 +6,7 @@ import React from "react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
 import { useState } from 'react';
 import {Button} from "@nextui-org/react";
+import styles from './Trainee_dashboard.module.css';
 
 const rows = [
     {
@@ -76,42 +77,42 @@ export default function Trainee_dashboard() {
         <div className="flex items-center justify-center">
         <div className="outer-container bg-black w-2/3">
             <div className='container bg-black max-w-40 w-30'>
-            <Table aria-label="Example static collection table">
-                <TableHeader>
-                    <TableColumn>TRAINER</TableColumn>
-                    <TableColumn>WEEK</TableColumn>
-                    <TableColumn>STATUS</TableColumn>
-                </TableHeader>
-                <TableBody>
-                    <TableRow key="1">
-                    <TableCell>Yabebal Fantaye</TableCell>
-                    <TableCell>Week 1 Certificate</TableCell>
-                    <TableCell onClick={handleClick}>
-                    <Button color="success">
-                      Delivered
-                    </Button>
-                    </TableCell>
-                    </TableRow>
-                    <TableRow key="2">
-                    <TableCell>Yabebal Fantaye</TableCell>
-                    <TableCell>Week 1 Certificate</TableCell>
-                    <TableCell onClick={handleClick}>
-                    <Button color="warning">
-                      Requested
-                    </Button> 
-                    </TableCell>
-                    </TableRow>
-                    <TableRow key="2">
-                    <TableCell>Yabebal Fantaye</TableCell>
-                    <TableCell>Week 1 Certificate</TableCell>
-                    <TableCell onClick={handleClick}>
-                    <Button color={isTouched ? "warning" : "primary"} onClick={handleClick}>
-                      {isTouched ? 'Requested' : 'Request'}
-                    </Button>  
-                    </TableCell>
-                    </TableRow>
-                </TableBody>
-                </Table>
+            <Table aria-label="Certification" className={styles['table-black']}>
+    <TableHeader>
+        <TableColumn>TRAINER</TableColumn>
+        <TableColumn>WEEK</TableColumn>
+        <TableColumn>STATUS</TableColumn>
+    </TableHeader>
+    <TableBody >
+        <TableRow key="1">
+        <TableCell>Yabebal Fantaye</TableCell>
+        <TableCell>Week 2 Certificate</TableCell>
+        <TableCell onClick={handleClick}>
+        <Button color="success">
+          Delivered
+        </Button>
+        </TableCell>
+        </TableRow>
+        <TableRow key="2">
+        <TableCell>Yabebal Fantaye</TableCell>
+        <TableCell>Week 3 Certificate</TableCell>
+        <TableCell onClick={handleClick}>
+        <Button color="warning">
+          Requested
+        </Button> 
+        </TableCell>
+        </TableRow>
+        <TableRow key="2">
+        <TableCell>Yabebal Fantaye</TableCell>
+        <TableCell>Week 5 Certificate</TableCell>
+        <TableCell onClick={handleClick}>
+        <Button color={isTouched ? "warning" : "primary"} onClick={handleClick}>
+          {isTouched ? 'Requested' : 'Request'}
+        </Button>  
+        </TableCell>
+        </TableRow>
+    </TableBody>
+</Table>
             </div>
         </div>
         </div>

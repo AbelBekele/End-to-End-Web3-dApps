@@ -67,13 +67,25 @@ export default function Page() {
       }
       const router = useRouter(); 
 
-      useEffect(() => {
-        if (activeAddress === 'ZYPLVWUNKL4MNZPJNSYFTZYUDJMMDJHGLSGZDUC6NPTBRKMZWUBAYCWXBI') {
-          router.push('/trainer');
-        } else if (activeAddress === '2S35A2USHFVTXTSXC57LLYASQB7MZSUPXFTVPP2GXUPZWBDA2UID32A54E') {
-          router.push('/trainee');
+      React.useEffect(() => {
+        async function checkAddress() {
+            const response = await fetch('http://192.168.137.236:8088/trainees_hash');
+            if (response.ok) {
+                const data = await response.json();
+                const hashes = data.map((item: { hash: string }) => item.hash);
+    
+                if (activeAddress === 'ZYPLVWUNKL4MNZPJNSYFTZYUDJMMDJHGLSGZDUC6NPTBRKMZWUBAYCWXBI') {
+                    router.push('/trainer');
+                } else if (hashes.includes(activeAddress)) {
+                    router.push('/trainee');
+                }
+            } else {
+                console.error('Failed to fetch trainees hash');
+            }
         }
-      }, [activeAddress, router]);
+    
+        checkAddress();
+    }, [activeAddress, router]);
 
   return (
     <main className={classNames('relative flex-1 isolate', inter.className)}>

@@ -7,13 +7,10 @@ import os
 load_dotenv()
 
 JWT = os.getenv('PINATA')
-src = "cer.png"
 
 
-
-def pin_file_to_ipfs():
+def pin_file_to_ipfs(filename):
     url = "https://api.pinata.cloud/pinning/pinFileToIPFS"
-    filename = f"cer.png"
     headers = {
         "Authorization": "Bearer " + JWT
     }
@@ -34,8 +31,8 @@ def pin_file_to_ipfs():
         headers['Content-Type'] = multipart_data.content_type
         response = requests.post(url, data=multipart_data, headers=headers)
     if response.status_code == 200:
-        print(f"Successfully uploaded name certificate.")
+        print(f"Successfully uploaded {filename} certificate.")
         return response.json()["IpfsHash"]
     else:
-        print(f"Failed to upload name's certificate. Response: {response.text}")
+        print(f"Failed to upload {filename}'s certificate. Response: {response.text}")
         return None

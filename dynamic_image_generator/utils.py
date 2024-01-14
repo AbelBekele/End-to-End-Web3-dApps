@@ -1,26 +1,40 @@
 import cv2
+import requests
 import numpy as np
-import random
+import os
 
-def write_name(name: str) -> str:
-    # Open the Base certificate image
-    img = cv2.imread("certificate/responses/selected.png")  # Replace with your base certificate image name
-    # Window name in which image is displayed 
-    window_name = 'Image'
-    # Save all the information we are going to use
-    location = (140, 800)  # Replace with the coordinates you noted. (X, Y)
-    text_color = (18, 48, 134)  # Replace with the color you want the text to be
-    font = cv2.FONT_HERSHEY_SIMPLEX  # Replace with a font of your choosing
-    font_scale = 3  # Change the number to change font size
-    font_thickness = 2
-    # Insert the text to the location, with the person's name as text and fill the text in the color of our choice (and use the selected font)
-    img = cv2.putText(img, name, location, font, font_scale, text_color, font_thickness, cv2.LINE_AA, False)
-    img = cv2.putText(img, name, location, font, font_scale, text_color, font_thickness, cv2.LINE_AA, True)
-    # Create a unique name for the file. Feel free to edit the format, this is an example
-    file_name = "generated/" + name + str(random.randint(0, 255)) + ".png"
-    # Save the image
-    cv2.imwrite(file_name, img)
-    # Display the image 
-    cv2.imshow(window_name, img)
-    # Return the name we generated
-    return file_name
+def create_certificate(full_name, date, week):
+    certificate_background = cv2.imread("with_texts_2.png")
+
+    cv2.putText(
+        certificate_background,
+        full_name,
+        (150, 402),  # Change these values to adjust the location
+        cv2.FONT_HERSHEY_SIMPLEX,
+        1.0,  # Change this value to adjust the font size
+        (0, 0, 255),
+        2,
+    )
+
+    cv2.putText(
+        certificate_background,
+        week,
+        (145, 473),  # Change these values to adjust the location
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.6,  # Change this value to adjust the font size
+        (10, 10, 10),
+        2,
+    )
+
+    cv2.putText(
+        certificate_background,
+        date,
+        (280 , 748),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.6,
+        (0, 0, 0),
+        2,
+    )
+
+    filename = f"{full_name}_{date}_certificate.png"
+    cv2.imwrite(filename, certificate_background)

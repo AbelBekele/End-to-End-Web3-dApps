@@ -27,11 +27,7 @@ def DBConnect(dbName=None):
     return conn, cur
 
 def createDB(dbName: str) -> None:
-    conn = psycopg2.connect(
-        host='192.168.137.236',
-        user='postgres',
-        password='1001'
-    )
+    conn = DBConnect()
     conn.autocommit = True
     cur = conn.cursor()
     cur.execute(f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{dbName}'")
@@ -156,3 +152,39 @@ def db_get_values_by_addr(addr: str, dbName: str="trainee"):
     except Exception as e:
         conn.rollback()
         print("Error: ", e)
+
+def fetch_trainees() -> list:
+    conn, cur = DBConnect("certificate")
+    cur.execute("SELECT trainee, week, status FROM trainee")  # replace with your actual column names
+    rows = cur.fetchall()
+
+    trainees = []
+    for row in rows:
+        trainee = {
+            "trainee": str(row[0]),
+            "status": row[1],
+            "week": row[2],
+        }
+        trainees.append(trainee)
+
+    cur.close()
+    conn.close()
+
+    return trainees
+
+def fetch_trainees_hash() -> list:
+    conn, cur = DBConnect("certificate")
+    cur.execute("SELECT hashed FROM trainee")  # replace with your actual column names
+    rows = cur.fetchall()
+
+    hashedd = []
+    for row in rows:
+        hashed = {
+            "hash": str(row[0]),
+        }
+        hashedd.append(hashed)
+
+    cur.close()
+    conn.close()
+
+    return hashedd
